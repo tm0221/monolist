@@ -29,6 +29,7 @@ class OwnershipsController < ApplicationController
       @item.raw_info        = amazon_item.get_hash
       @item.save!
     end
+    
 
     if params[:type] == "Have"
       current_user.have(@item)
