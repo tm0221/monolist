@@ -28,7 +28,7 @@
           <% if @have_users.any? %>
             <% @have_users.each do |user| %>
               <span class="icon">
-                <%= link_to gravatar_for(user, size: 20), user if user != current_user %>
+                <%= link_to gravatar_for(user, size: 20), user %>
               </span>
             <% end %>
           <% end %>    
@@ -41,7 +41,7 @@
           <% if @have_users.any? %>
             <% @want_users.each do |user| %>
               <span class="icon">
-                <%= link_to gravatar_for(user, size: 20), user if user != current_user %>
+                <%= link_to gravatar_for(user, size: 20), user %>
               </span>
             <% end %>
           <% end %>  
