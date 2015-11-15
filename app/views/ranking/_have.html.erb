@@ -1,0 +1,39 @@
+<div class="text-center"> 
+  <h1>HAVE ITEM RANKING</h1>
+</div>
+
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+      
+    <% rank = 1 %>
+    <% count_a = 0 %>
+    <% count_b = 0 %>
+    
+    <% @haves.each do |item| %>
+      <div class="item-box">
+        
+        <% if item[1] != count_b %>
+          <% rank = rank + count_a %>
+          <% count_a = 1 %>
+        <% else %>
+          <% count_a = count_a + 1 %>
+        <% end %>
+        <h3><span class="label label-info"><%= rank %></span></h3>
+        <h6>Have users : <%= item[1] %></h6>
+        <% count_b = item[1] %>
+        
+        <div class="image">
+          <div class="img-wrap">
+            <% id = item[0] %>
+            <% @item = Item.find(id) %>
+            <%= link_to image_tag(@item.large_image ,alt: @item.title), @item.detail_page_url %>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= @item.title %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
